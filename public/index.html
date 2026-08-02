@@ -1,0 +1,376 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>مجموعة 3M Group | الاستيراد والتصدير، الخدمات اللوجستية وماكينات تقطيع الليزر</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'primary-dark': '#0A2647',
+                        'secondary-teal': '#1B7C8C',
+                        'accent-yellow': '#F5C518',
+                        'bg-light': '#F4F7FC',
+                        'text-dark': '#1E293B',
+                    }
+                }
+            }
+        }
+    </script>
+    <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700;800;900&family=Cairo:wght@400;600;700;800;900&display=swap" rel="stylesheet">
+    <style>
+        :root {
+          --primary-dark: #0A2647;      /* الأزرق البحري للهيدر والفوتر والعناوين الكبيرة */
+          --secondary-teal: #1B7C8C;    /* الزبرجدي للخلفيات الثانوية والأيقونات */
+          --accent-yellow: #F5C518;     /* الأصفر للأزرار الرئيسية والكلمات المفتاحية */
+          --bg-light: #F4F7FC;          /* خلفية الموقع الأساسية */
+          --text-dark: #1E293B;         /* لون النصوص الأساسي */
+          --text-white: #FFFFFF;        /* النصوص البيضاء */
+        }
+
+        body {
+          font-family: 'Tajawal', 'Cairo', sans-serif;
+          background-color: var(--bg-light);
+          color: var(--text-dark);
+        }
+
+        /* مثال على تصميم زر رئيسي */
+        .btn-primary {
+          background-color: var(--accent-yellow);
+          color: var(--primary-dark);
+          font-weight: 700;
+          border: none;
+          padding: 14px 32px;
+          border-radius: 4px; /* زوايا حادة قليلاً */
+          transition: all 0.3s ease;
+          display: inline-block;
+          text-align: center;
+        }
+
+        .btn-primary:hover {
+          background-color: var(--secondary-teal);
+          color: var(--text-white);
+          box-shadow: 0 8px 20px rgba(27, 124, 140, 0.4);
+        }
+
+        /* مثال على بطاقة خدمة */
+        .service-card {
+          background: var(--text-white);
+          border-left: 6px solid var(--secondary-teal);
+          padding: 24px;
+          transition: 0.3s;
+          border-radius: 4px;
+          box-shadow: 0 4px 12px rgba(10, 38, 71, 0.06);
+        }
+
+        .service-card:hover {
+          border-left-color: var(--accent-yellow);
+          transform: translateY(-5px);
+          box-shadow: 0 12px 30px rgba(10, 38, 71, 0.12);
+        }
+    </style>
+</head>
+<body class="bg-[#F4F7FC] text-[#1E293B] min-h-screen flex flex-col">
+
+    <!-- 1. Navigation Bar -->
+    <header class="bg-[#0A2647] border-b border-[#1B7C8C]/30 sticky top-0 z-50 shadow-lg">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4 flex justify-between items-center">
+            <div class="flex items-center space-x-4 space-x-reverse">
+                <a href="/" class="flex items-center space-x-3 space-x-reverse group">
+                    <span class="text-3xl font-black text-[#F5C518] tracking-wider group-hover:text-amber-300 transition">3M GROUP</span>
+                    <span class="text-xs bg-[#1B7C8C]/30 text-white px-2.5 py-1 rounded-sm border border-[#1B7C8C] font-bold hidden sm:inline-block">للاستيراد والتصدير والمعدات</span>
+                </a>
+            </div>
+            <nav class="hidden md:flex space-x-8 space-x-reverse font-bold text-sm">
+                <a href="/" class="text-[#F5C518] border-b-2 border-[#F5C518] pb-1 transition">الرئيسية</a>
+                <a href="/catalog.html" class="text-white hover:text-[#F5C518] transition py-1">كتالوج المعدات والمنتجات</a>
+                <a href="#services" class="text-white hover:text-[#F5C518] transition py-1">خدماتنا اللوجستية</a>
+                <a href="#about" class="text-white hover:text-[#F5C518] transition py-1">عن المجموعة</a>
+            </nav>
+            <div class="flex items-center space-x-3 space-x-reverse">
+                <a href="/catalog.html" class="btn-primary text-sm uppercase">
+                    تصفح الكتالوج
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <!-- 2. Hero Section -->
+    <section class="relative bg-[#0A2647] py-28 border-b border-[#1B7C8C]/40 overflow-hidden">
+        <!-- Background Overlay Effect -->
+        <div class="absolute inset-0 bg-gradient-to-r from-[#0A2647] via-[#0A2647]/90 to-[#1B7C8C]/80 z-0"></div>
+        <div class="absolute -right-20 -top-20 w-96 h-96 bg-[#1B7C8C]/20 rounded-full blur-3xl"></div>
+        <div class="absolute left-0 bottom-0 w-80 h-80 bg-[#F5C518]/10 rounded-full blur-2xl"></div>
+
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-center">
+            <span class="bg-[#1B7C8C]/40 text-[#F5C518] text-xs font-black px-4 py-2 rounded-sm border border-[#F5C518]/40 uppercase tracking-widest inline-block mb-6 shadow-sm">
+                الريادة في حلول الشحن والمعدات الصناعية وتكنولوجيا الليزر
+            </span>
+            <h1 class="text-4xl sm:text-6xl font-extrabold text-white mb-6 leading-tight uppercase">
+                حلول هندسية ولوجستية متكاملة <br>
+                <span class="text-[#F5C518]">لدعم خططك الإنتاجية والتجارية</span>
+            </h1>
+            <p class="text-lg text-gray-200 max-w-3xl mx-auto mb-10 leading-relaxed font-normal">
+                مجموعة 3M Group تقدم خطوط ماكينات تقطيع الليزر بالألياف (Fiber Laser)، خدمات التخليص الجمركي والشحن الدولي، والمعدات الصناعية الفائقة الدقة وفق أعلى المقاييس العالمية.
+            </p>
+            <div class="flex flex-col sm:flex-row justify-center gap-4">
+                <a href="/catalog.html" class="btn-primary text-base uppercase shadow-xl">
+                    استعرض الكتالوج والمنتجات ←
+                </a>
+                <a href="#services" class="bg-[#1B7C8C] hover:bg-[#0A2647] text-white font-bold px-8 py-3.5 rounded-sm border border-[#1B7C8C] transition text-base">
+                    اكتشف خدماتنا اللوجستية
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- 3. Service Cards Section -->
+    <section id="services" class="py-24 bg-[#F4F7FC]">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl sm:text-4xl font-black text-[#0A2647] mb-4 uppercase">قطاعات الخدمات والتوريدات</h2>
+                <div class="w-24 h-1 bg-[#F5C518] mx-auto mb-4"></div>
+                <p class="text-[#1E293B] max-w-2xl mx-auto text-base">نقدم منظومة خدمات صناعية ولوجستية شاملة تلبي تطلعات المصانع والشركات الاستثمارية.</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <!-- Card 1: Laser Machines -->
+                <div class="service-card">
+                    <div class="w-14 h-14 bg-[#0A2647] text-[#F5C518] rounded-sm flex items-center justify-center font-black text-2xl mb-6 shadow-md">
+                        ⚡
+                    </div>
+                    <h3 class="text-xl font-extrabold text-[#0A2647] mb-3">ماكينات الليزر الصناعية</h3>
+                    <p class="text-[#1E293B]/80 text-sm leading-relaxed mb-4">
+                        نستورد ونورد أحدث ماكينات التقطيع بالليزر (Fiber Laser) بقدرات عالية، مع توفير صفحات مستقلة ومواصفات دقيقة لكل طراز.
+                    </p>
+                    <a href="/catalog.html?category=1" class="text-[#1B7C8C] font-bold text-sm hover:text-[#0A2647] transition">التفاصيل والكتالوج ←</a>
+                </div>
+
+                <!-- Card 2: International Shipping -->
+                <div class="service-card">
+                    <div class="w-14 h-14 bg-[#0A2647] text-[#F5C518] rounded-sm flex items-center justify-center font-black text-2xl mb-6 shadow-md">
+                        🚢
+                    </div>
+                    <h3 class="text-xl font-extrabold text-[#0A2647] mb-3">الشحن الدولي والنقل البحري</h3>
+                    <p class="text-[#1E293B]/80 text-sm leading-relaxed mb-4">
+                        حلول لوجستية متكاملة لخدمات الشحن البحري والجوي للمعدات الحساسة والحاويات الكبيرة مع ضمان سلامة الشحنات.
+                    </p>
+                    <a href="#about" class="text-[#1B7C8C] font-bold text-sm hover:text-[#0A2647] transition">إدارة اللوجستيات ←</a>
+                </div>
+
+                <!-- Card 3: Customs Clearance -->
+                <div class="service-card">
+                    <div class="w-14 h-14 bg-[#0A2647] text-[#F5C518] rounded-sm flex items-center justify-center font-black text-2xl mb-6 shadow-md">
+                        📦
+                    </div>
+                    <h3 class="text-xl font-extrabold text-[#0A2647] mb-3">التخليص الجمركي والاستيراد</h3>
+                    <p class="text-[#1E293B]/80 text-sm leading-relaxed mb-4">
+                        خبراء في كافة الإجراءات الجمركية وتجهيز المستندات لتسليم خطوط الإنتاج والقطع إلى مقر مصنعك بأسرع وقت.
+                    </p>
+                    <a href="#about" class="text-[#1B7C8C] font-bold text-sm hover:text-[#0A2647] transition">الاستشارات الجمركية ←</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 4. Statistics Counter Row -->
+    <section class="bg-[#1B7C8C] py-16 text-white border-y-4 border-[#F5C518]">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
+                <div class="p-4">
+                    <div class="text-4xl sm:text-5xl font-black text-white mb-2">150+</div>
+                    <div class="text-[#F5C518] font-bold text-sm sm:text-base">ماكينة ليزر تم توريدها</div>
+                </div>
+                <div class="p-4">
+                    <div class="text-4xl sm:text-5xl font-black text-white mb-2">1,200+</div>
+                    <div class="text-[#F5C518] font-bold text-sm sm:text-base">شحنة لوجستية مكتملة</div>
+                </div>
+                <div class="p-4">
+                    <div class="text-4xl sm:text-5xl font-black text-white mb-2">99.8%</div>
+                    <div class="text-[#F5C518] font-bold text-sm sm:text-base">نسبة الالتزام بالوقت</div>
+                </div>
+                <div class="p-4">
+                    <div class="text-4xl sm:text-5xl font-black text-white mb-2">24/7</div>
+                    <div class="text-[#F5C518] font-bold text-sm sm:text-base">دعم فني وصيانة معتمدة</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 5. Featured Products Preview -->
+    <section class="py-20 bg-[#F4F7FC]">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex flex-col md:flex-row justify-between items-center mb-12">
+                <div>
+                    <h2 class="text-3xl font-black text-[#0A2647] mb-2">أبرز المعدات والمنتجات المميزة</h2>
+                    <p class="text-[#1E293B]/70 text-sm">استعرض المعدات الأكثر طلباً مع صفحات المواصفات الفنية المستقلة</p>
+                </div>
+                <a href="/catalog.html" class="btn-primary text-sm mt-4 md:mt-0">
+                    عرض جميع المنتجات →
+                </a>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Sample Product 1 -->
+                <div class="bg-white rounded-sm border-2 border-gray-200 overflow-hidden hover:border-[#1B7C8C] transition duration-300 shadow-sm flex flex-col">
+                    <div class="h-56 bg-gray-200 relative">
+                        <img src="https://images.unsplash.com/photo-1581092160607-ee22621dd758?auto=format&fit=crop&w=800&q=80" alt="Fiber Laser" class="w-full h-full object-cover">
+                        <span class="absolute top-3 right-3 bg-[#F5C518] text-[#0A2647] text-xs font-black px-3 py-1 rounded-sm shadow">معدة ليزر</span>
+                    </div>
+                    <div class="p-6 flex flex-col flex-grow">
+                        <h3 class="text-lg font-bold text-[#0A2647] mb-2">ماكينة قص الليزر Fiber Laser Cut SF3015H</h3>
+                        <p class="text-[#1E293B]/70 text-sm mb-4 line-clamp-2">قوة 12000 واط مع طاولة تبديل سريعة وهيكل فولاذي فائق المتانة.</p>
+                        <div class="mt-auto pt-4 border-t border-gray-100 flex justify-between items-center">
+                            <a href="/product.html?slug=fiber-laser-cutter-sf3015h" class="text-[#1B7C8C] hover:text-[#0A2647] font-bold text-sm">عرض التفاصيل ←</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Sample Product 2 -->
+                <div class="bg-white rounded-sm border-2 border-gray-200 overflow-hidden hover:border-[#1B7C8C] transition duration-300 shadow-sm flex flex-col">
+                    <div class="h-56 bg-gray-200 relative">
+                        <img src="https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?auto=format&fit=crop&w=800&q=80" alt="Logistics Freight" class="w-full h-full object-cover">
+                        <span class="absolute top-3 right-3 bg-[#1B7C8C] text-white text-xs font-black px-3 py-1 rounded-sm shadow">لوجستيات</span>
+                    </div>
+                    <div class="p-6 flex flex-col flex-grow">
+                        <h3 class="text-lg font-bold text-[#0A2647] mb-2">منظومة الشحن والتخليص للمعدات الثقيلة</h3>
+                        <p class="text-[#1E293B]/70 text-sm mb-4 line-clamp-2">حلول نقل متكاملة للمعدات ذات الأوزان والأحجام الاستثنائية من جميع الموانئ.</p>
+                        <div class="mt-auto pt-4 border-t border-gray-100 flex justify-between items-center">
+                            <a href="/catalog.html" class="text-[#1B7C8C] hover:text-[#0A2647] font-bold text-sm">عرض التفاصيل ←</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Sample Product 3 -->
+                <div class="bg-white rounded-sm border-2 border-gray-200 overflow-hidden hover:border-[#1B7C8C] transition duration-300 shadow-sm flex flex-col">
+                    <div class="h-56 bg-gray-200 relative">
+                        <img src="https://images.unsplash.com/photo-1616401784845-180882ba9ba8?auto=format&fit=crop&w=800&q=80" alt="CNC Machine" class="w-full h-full object-cover">
+                        <span class="absolute top-3 right-3 bg-[#0A2647] text-[#F5C518] text-xs font-black px-3 py-1 rounded-sm shadow">معدات هندسية</span>
+                    </div>
+                    <div class="p-6 flex flex-col flex-grow">
+                        <h3 class="text-lg font-bold text-[#0A2647] mb-2">ماكينة الحفر الدقيق CNC Engraving Pro</h3>
+                        <p class="text-[#1E293B]/70 text-sm mb-4 line-clamp-2">محركات 서보 فائقة الدقة للتشكيل المعقد على المعادن والأخشاب.</p>
+                        <div class="mt-auto pt-4 border-t border-gray-100 flex justify-between items-center">
+                            <a href="/catalog.html" class="text-[#1B7C8C] hover:text-[#0A2647] font-bold text-sm">عرض التفاصيل ←</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 5. About Us Section -->
+    <section id="about" class="py-24 bg-[#F4F7FC]">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl sm:text-4xl font-black text-[#0A2647] mb-4 uppercase">عن المجموعة</h2>
+                <div class="w-24 h-1 bg-[#F5C518] mx-auto mb-4"></div>
+                <p class="text-[#1E293B] max-w-2xl mx-auto text-base">تعرف على تاريخنا ورؤيتنا في تقديم حلول الاستيراد والتصدير والخدمات اللوجستية المتكاملة.</p>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+                <div>
+                    <p class="text-[#1E293B]/80 text-lg leading-relaxed mb-6">
+                        مجموعة 3M Group هي شركة تأسست في عام 2011، وفي عام 2018 تم تأسيس قسم الاستيراد والتصدير والخدمات الاستشارية لمساعدة عدد من الرأسماليين ورجال الأعمال في تقديم جميع خدمات الاستيراد والتصدير والاستشارات، مع تقديم عروض الأسعار ودراسات السوق بطريقة متميزة، وتوفير خدمات الشحن من الخارج إلى مصر والعكس بأفضل الأسعار، بالإضافة إلى تقديم خدمات التخليص الجمركي من خلال متخصصين وفريق عمل متخصص في الاستيراد من الصين إلى مصر.
+                    </p>
+                </div>
+                <div class="relative">
+                    <img src="https://images.pexels.com/photos/753331/pexels-photo-753331.jpeg?auto=compress&cs=tinysrgb&w=800" alt="ميناء وشحن بحري" class="rounded-sm shadow-xl w-full">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 6. Our Vision Section -->
+    <section class="py-24 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl sm:text-4xl font-black text-[#0A2647] mb-4 uppercase">رؤيتنا</h2>
+                <div class="w-24 h-1 bg-[#F5C518] mx-auto mb-4"></div>
+                <p class="text-[#1E293B] max-w-2xl mx-auto text-base">نهدف إلى تحقيق الريادة في مجالات الاستيراد والتصدير والتسويق الدولي.</p>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+                <div class="relative">
+                    <img src="https://images.pexels.com/photos/3862601/pexels-photo-3862601.jpeg?auto=compress&cs=tinysrgb&w=800" alt="ماكينات صناعية" class="rounded-sm shadow-xl w-full">
+                </div>
+                <div>
+                    <p class="text-[#1E293B]/80 text-lg leading-relaxed mb-6">
+                        تسعى شركة 3M Group للاستيراد والتصدير إلى أن تكون رائدة في مجالات الاستيراد والتصدير والتسويق الدولي، ومساعدة جميع عملائنا، سواء كانوا رجال أعمال أو أصحاب مشاريع متوسطة داخل أو خارج مصر، في الحصول على أفضل عروض الأسعار للمنتجات أو المعدات المطلوب استيرادها من الخارج في جميع المجالات، مهما كان نوعها، من أشهر الأسواق العالمية من خلال شركات الاستيراد من الصين.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 7. Company Plan Section -->
+    <section class="py-24 bg-[#F4F7FC]">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl sm:text-4xl font-black text-[#0A2647] mb-4 uppercase">خطة الشركة</h2>
+                <div class="w-24 h-1 bg-[#F5C518] mx-auto mb-4"></div>
+                <p class="text-[#1E293B] max-w-2xl mx-auto text-base">نحن ملتزمون بتحويل رؤيتنا إلى واقع من خلال استراتيجية واضحة ومحددة.</p>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-start">
+                <!-- Point 1: Continuous Improvement -->
+                <div class="service-card">
+                    <div class="w-14 h-14 bg-[#0A2647] text-[#F5C518] rounded-sm flex items-center justify-center font-black text-2xl mb-6 shadow-md">
+                        🔄
+                    </div>
+                    <h3 class="text-xl font-extrabold text-[#0A2647] mb-3">التحسين المستمر لخدمة العملاء</h3>
+                    <p class="text-[#1E293B]/80 text-sm leading-relaxed mb-4">
+                        نجاح شركة 3M Group للاستيراد والتصدير في أن تصبح رائدة في مجال الاستيراد والتصدير داخل جمهورية مصر العربية لم يأتي من فراغ، بل هو نتيجة سجل طويل من العمل الجاد وفريق عمل محترف ومتميز يمتلك القدرة على التميز عن الآخرين. لكن طموح شركة 3M للاستيراد والتصدير لن يتوقف عند هذا الحد، بل سنواصل العمل بجد لتحسين الخدمة المقدمة لعملائنا من خلال مكاتب الاستيراد والتصدير التابعة للشركة، سواء داخل أو خارج مصر. للمزيد، تواصل مع مكتب الاستيراد من الصين...
+                    </p>
+                </div>
+                
+                <!-- Point 2: Customer Focus Policy -->
+                <div class="service-card">
+                    <div class="w-14 h-14 bg-[#0A2647] text-[#F5C518] rounded-sm flex items-center justify-center font-black text-2xl mb-6 shadow-md">
+                        👥
+                    </div>
+                    <h3 class="text-xl font-extrabold text-[#0A2647] mb-3">سياسة التركيز على العميل</h3>
+                    <p class="text-[#1E293B]/80 text-sm leading-relaxed mb-4">
+                        هذه هي القاعدة التي نعمل عليها جميعًا خلال مسار خدمة الاستيراد والتصدير بشكل عام، حيث تولي شركة 3M للاستيراد والتصدير من الخارج اهتمامًا خاصًا بتحقيق رضا العملاء. لدينا فريق من المحترفين ذوي الخبرة العالية في جميع الخدمات المتعلقة بعملية الاستيراد والتصدير، وهم قادرون على تقديم أفضل جودة للعمل ضمن الميزانية المنطقية التي تناسبك عند طلب الحصول على أفضل عروض أسعار الاستيراد والتصدير.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 8. Footer -->
+    <footer class="bg-gradient-to-r from-[#0A2647] to-[#1B7C8C] text-white py-12 border-t-4 border-[#F5C518]">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-8">
+                <div>
+                    <h4 class="text-2xl font-black text-[#F5C518] mb-3 tracking-wider">3M GROUP</h4>
+                    <p class="text-gray-200 text-sm leading-relaxed">
+                        مجموعة 3M Group المتخصصة في الاستيراد والتصدير والتخليص الجمركي وتوريد ماكينات التقطيع بالليزر بصفحات منتجات مستقلة.
+                    </p>
+                </div>
+                <div>
+                    <h4 class="text-lg font-bold text-[#F5C518] mb-3">روابط السريعة</h4>
+                    <ul class="space-y-2 text-sm text-gray-200 font-semibold">
+                        <li><a href="/" class="hover:text-[#F5C518] transition">الرئيسية</a></li>
+                        <li><a href="/catalog.html" class="hover:text-[#F5C518] transition">كتالوج المنتجات والمعدات</a></li>
+                        <li><a href="/admin.html" class="hover:text-[#F5C518] transition">لوحة التحكم CRM</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="text-lg font-bold text-[#F5C518] mb-3">بيانات التواصل</h4>
+                    <p class="text-sm text-gray-200 mb-2">📍 المنطقة الصناعية - القليوبية / القاهرة</p>
+                    <p class="text-sm text-gray-200 mb-2">📞 هاتف: +20 100 000 0000</p>
+                    <p class="text-sm text-gray-200">✉️ البريد: info@3mgroup.com</p>
+                </div>
+            </div>
+            <div class="pt-8 border-t border-white/10 text-center text-xs text-gray-300">
+                <p>© 2026 جميع الحقوق محفوظة لمجموعة 3M Group - برمجة مخصصة عالية الأداء والهوية الصناعية.</p>
+            </div>
+        </div>
+    </footer>
+
+</body>
+</html>

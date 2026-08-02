@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title id="pageTitle">صفحة المنتج | مجموعة 3M Group</title>
+    <meta name="description" id="pageMetaDesc" content="تفاصيل المنتج والمواصفات الفنية للمعدات الصناعية من مجموعة 3M Group">
+    
+    <!-- OpenGraph SEO Tags for Social Sharing -->
+    <meta property="og:title" id="ogTitle" content="صفحة المنتج | مجموعة 3M Group">
+    <meta property="og:description" id="ogDesc" content="تفاصيل ومواصفات المعدات الصناعية">
+    <meta property="og:image" id="ogImage" content="">
+    <meta property="og:type" content="product">
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'primary-dark': '#0A2647',
+                        'secondary-teal': '#1B7C8C',
+                        'accent-yellow': '#F5C518',
+                        'bg-light': '#F4F7FC',
+                        'text-dark': '#1E293B',
+                    }
+                }
+            }
+        }
+    </script>
+    <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700;800;900&family=Cairo:wght@400;600;700;800;900&display=swap" rel="stylesheet">
+    <style>
+        :root {
+          --primary-dark: #0A2647;
+          --secondary-teal: #1B7C8C;
+          --accent-yellow: #F5C518;
+          --bg-light: #F4F7FC;
+          --text-dark: #1E293B;
+          --text-white: #FFFFFF;
+        }
+
+        body {
+          font-family: 'Tajawal', 'Cairo', sans-serif;
+          background-color: var(--bg-light);
+          color: var(--text-dark);
+        }
+
+        .btn-primary {
+          background-color: var(--accent-yellow);
+          color: var(--primary-dark);
+          font-weight: 700;
+          border: none;
+          padding: 12px 28px;
+          border-radius: 4px;
+          transition: all 0.3s ease;
+          display: inline-block;
+          text-align: center;
+        }
+
+        .btn-primary:hover {
+          background-color: var(--secondary-teal);
+          color: var(--text-white);
+          box-shadow: 0 8px 20px rgba(27, 124, 140, 0.4);
+        }
+    </style>
+</head>
+<body class="bg-[#F4F7FC] text-[#1E293B] min-h-screen flex flex-col">
+
+    <!-- Header Navigation -->
+    <header class="bg-[#0A2647] border-b border-[#1B7C8C]/30 sticky top-0 z-50 shadow-lg">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4 flex justify-between items-center">
+            <div class="flex items-center space-x-4 space-x-reverse">
+                <a href="/" class="flex items-center space-x-3 space-x-reverse group">
+                    <span class="text-3xl font-black text-[#F5C518] tracking-wider group-hover:text-amber-300 transition">3M GROUP</span>
+                    <span class="text-xs bg-[#1B7C8C]/30 text-white px-2.5 py-1 rounded-sm border border-[#1B7C8C] font-bold hidden sm:inline-block">للمعدات الصناعية</span>
+                </a>
+            </div>
+            <nav class="hidden md:flex space-x-8 space-x-reverse font-bold text-sm">
+                <a href="/" class="text-white hover:text-[#F5C518] transition py-1">الرئيسية</a>
+                <a href="/catalog.html" class="text-white hover:text-[#F5C518] transition py-1">المنتجات والمعدات</a>
+            </nav>
+            <div class="flex items-center space-x-3 space-x-reverse">
+                <a href="/catalog.html" class="bg-[#1B7C8C] hover:bg-[#0A2647] text-white font-bold px-4 py-2 rounded-sm transition text-sm">
+                    ← العودة للكتالوج
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Product Container -->
+    <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10 flex-grow w-full">
+        <div id="productDetail" class="grid grid-cols-1 lg:grid-cols-2 gap-10">
+            <!-- Loading placeholder -->
+            <div class="col-span-2 text-center py-20 text-[#0A2647] font-bold">جاري تحميل بيانات المنتج...</div>
+        </div>
+    </main>
+
+    <!-- Inquiry Modal -->
+    <div id="inquiryModal" class="hidden fixed inset-0 bg-[#0A2647]/80 backdrop-blur-sm z-50 flex items-center justify-center p-4">
+        <div class="bg-white rounded-sm border-t-4 border-[#F5C518] p-6 max-w-lg w-full relative shadow-2xl">
+            <button onclick="closeModal()" class="absolute top-4 left-4 text-[#0A2647] font-black text-lg hover:text-red-500">✕</button>
+            <h3 class="text-xl font-black text-[#0A2647] mb-2">طلب عرض سعر / استفسار</h3>
+            <p id="modalProductName" class="text-xs text-[#1B7C8C] font-bold mb-4"></p>
+            
+            <form id="inquiryForm" onsubmit="submitInquiry(event)" class="space-y-4 text-sm">
+                <input type="hidden" id="modalProductId">
+                <div>
+                    <label class="block text-[#0A2647] font-bold mb-1">الاسم الكريم</label>
+                    <input type="text" id="inqName" required class="w-full bg-[#F4F7FC] border border-gray-300 rounded-sm p-2.5 text-[#1E293B] focus:border-[#1B7C8C] outline-none">
+                </div>
+                <div>
+                    <label class="block text-[#0A2647] font-bold mb-1">رقم الهاتف / واتساب</label>
+                    <input type="tel" id="inqPhone" required class="w-full bg-[#F4F7FC] border border-gray-300 rounded-sm p-2.5 text-[#1E293B] focus:border-[#1B7C8C] outline-none">
+                </div>
+                <div>
+                    <label class="block text-[#0A2647] font-bold mb-1">البريد الإلكتروني (اختياري)</label>
+                    <input type="email" id="inqEmail" class="w-full bg-[#F4F7FC] border border-gray-300 rounded-sm p-2.5 text-[#1E293B] focus:border-[#1B7C8C] outline-none">
+                </div>
+                <div>
+                    <label class="block text-[#0A2647] font-bold mb-1">تفاصيل الطلب / الاستفسار</label>
+                    <textarea id="inqMessage" rows="3" class="w-full bg-[#F4F7FC] border border-gray-300 rounded-sm p-2.5 text-[#1E293B] focus:border-[#1B7C8C] outline-none" placeholder="اكتب استفسارك عن المنتج المختار..."></textarea>
+                </div>
+                <button type="submit" class="w-full btn-primary uppercase text-base">
+                    إرسال الطلب وإشعار الإدارة فوراً
+                </button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="bg-gradient-to-r from-[#0A2647] to-[#1B7C8C] text-white py-6 border-t-4 border-[#F5C518] text-center text-xs">
+        <p>© 2026 مجموعة 3M Group - برمجة خاصة فائقة الأداء والهوية الصناعية.</p>
+    </footer>
+
+    <script>
+        const urlParams = new URLSearchParams(window.location.search);
+        const slug = urlParams.get('slug') || 'fiber-laser-cutter-sf3015h';
+        let currentProduct = null;
+
+        async function loadProduct() {
+            try {
+                const res = await fetch(`/api/products/${slug}`);
+                const data = await res.json();
+                
+                if (!data.success) {
+                    document.getElementById('productDetail').innerHTML = `<div class="col-span-2 text-center text-red-600 font-bold">${data.message}</div>`;
+                    return;
+                }
+
+                currentProduct = data.data;
+                updateSEOAndOpenGraph(currentProduct);
+                renderProductPage(currentProduct);
+            } catch (e) {
+                console.error(e);
+            }
+        }
+
+        function updateSEOAndOpenGraph(p) {
+            document.getElementById('pageTitle').innerText = `${p.title} | مجموعة 3M Group`;
+            document.getElementById('pageMetaDesc').setAttribute('content', p.short_description || p.title);
+            document.getElementById('ogTitle').setAttribute('content', `${p.title} | مجموعة 3M Group`);
+            document.getElementById('ogDesc').setAttribute('content', p.short_description || '');
+            document.getElementById('ogImage').setAttribute('content', p.featured_image || '');
+        }
+
+        function renderProductPage(p) {
+            let specsHtml = '';
+            for (const [key, value] of Object.entries(p.specifications || {})) {
+                specsHtml += `
+                    <tr class="border-b border-gray-200">
+                        <td class="py-2.5 px-4 font-bold text-[#0A2647] bg-gray-100 w-1/2">${key}</td>
+                        <td class="py-2.5 px-4 text-[#1B7C8C] font-black w-1/2">${value}</td>
+                    </tr>
+                `;
+            }
+
+            document.getElementById('productDetail').innerHTML = `
+                <!-- Right Column: Media Gallery -->
+                <div class="space-y-4">
+                    <div class="bg-white rounded-sm border-2 border-[#1B7C8C] overflow-hidden h-96 shadow-md">
+                        <img src="${p.featured_image}" id="mainImg" class="w-full h-full object-cover">
+                    </div>
+                </div>
+
+                <!-- Left Column: Product Info & Quote -->
+                <div class="space-y-6">
+                    <div>
+                        <span class="text-xs bg-[#1B7C8C]/20 text-[#0A2647] px-3 py-1 rounded-sm border border-[#1B7C8C] font-extrabold uppercase">صفحة منتج مخصصة</span>
+                        <h1 class="text-2xl sm:text-3xl font-black text-[#0A2647] mt-3">${p.title}</h1>
+                    </div>
+
+                    <p class="text-[#1E293B] leading-relaxed text-sm bg-white p-4 rounded-sm border-l-4 border-[#1B7C8C] shadow-sm">${p.description}</p>
+
+                    <!-- Specifications Table -->
+                    <div>
+                        <h3 class="text-base font-black text-[#0A2647] mb-3 flex items-center gap-2">
+                            ⚙️ المواصفات الفنية المعتمدة
+                        </h3>
+                        <div class="overflow-x-auto bg-white rounded-sm border-2 border-gray-200 shadow-sm text-xs">
+                            <table class="w-full text-right">
+                                <tbody>${specsHtml}</tbody>
+                            </table>
+                        </div>
+                    </div>
+
+                    <!-- Call to Action Buttons -->
+                    <div class="flex flex-col sm:flex-row gap-4 pt-4">
+                        <button onclick="openModal()" class="btn-primary uppercase text-sm shadow-md">
+                            طلب عرض سعر لهذا المنتج
+                        </button>
+                        <a href="https://wa.me/?text=${encodeURIComponent('السلام عليكم، استفسر عن المنتج: ' + p.title + ' - رابط الصفحة: ' + window.location.href)}" target="_blank" class="bg-emerald-600 hover:bg-emerald-700 text-white font-bold py-3 px-6 rounded-sm text-center transition flex items-center justify-center gap-2 shadow-md">
+                            💬 استفسار واتساب مباشر
+                        </a>
+                    </div>
+                </div>
+            `;
+        }
+
+        function openModal() {
+            if(!currentProduct) return;
+            document.getElementById('modalProductId').value = currentProduct.id;
+            document.getElementById('modalProductName').innerText = `المنتج: ${currentProduct.title}`;
+            document.getElementById('inquiryModal').classList.remove('hidden');
+        }
+
+        function closeModal() {
+            document.getElementById('inquiryModal').classList.add('hidden');
+        }
+
+        async function submitInquiry(e) {
+            e.preventDefault();
+            const body = {
+                product_id: document.getElementById('modalProductId').value,
+                name: document.getElementById('inqName').value,
+                phone: document.getElementById('inqPhone').value,
+                email: document.getElementById('inqEmail').value,
+                message: document.getElementById('inqMessage').value
+            };
+
+            const res = await fetch('/api/inquiries', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify(body)
+            });
+            const data = await res.json();
+            alert(data.message);
+            closeModal();
+        }
+
+        loadProduct();
+    </script>
+</body>
+</html>

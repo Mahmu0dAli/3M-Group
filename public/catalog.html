@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>كتالوج المنتجات والمعدات | مجموعة 3M Group</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'primary-dark': '#0A2647',
+                        'secondary-teal': '#1B7C8C',
+                        'accent-yellow': '#F5C518',
+                        'bg-light': '#F4F7FC',
+                        'text-dark': '#1E293B',
+                    }
+                }
+            }
+        }
+    </script>
+    <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700;800;900&family=Cairo:wght@400;600;700;800;900&display=swap" rel="stylesheet">
+    <style>
+        :root {
+          --primary-dark: #0A2647;
+          --secondary-teal: #1B7C8C;
+          --accent-yellow: #F5C518;
+          --bg-light: #F4F7FC;
+          --text-dark: #1E293B;
+          --text-white: #FFFFFF;
+        }
+
+        body {
+          font-family: 'Tajawal', 'Cairo', sans-serif;
+          background-color: var(--bg-light);
+          color: var(--text-dark);
+        }
+
+        .btn-primary {
+          background-color: var(--accent-yellow);
+          color: var(--primary-dark);
+          font-weight: 700;
+          border: none;
+          padding: 10px 24px;
+          border-radius: 4px;
+          transition: all 0.3s ease;
+          display: inline-block;
+          text-align: center;
+        }
+
+        .btn-primary:hover {
+          background-color: var(--secondary-teal);
+          color: var(--text-white);
+          box-shadow: 0 8px 20px rgba(27, 124, 140, 0.4);
+        }
+
+        .service-card {
+          background: var(--text-white);
+          border-left: 6px solid var(--secondary-teal);
+          padding: 24px;
+          transition: 0.3s;
+          border-radius: 4px;
+          box-shadow: 0 4px 12px rgba(10, 38, 71, 0.06);
+        }
+
+        .service-card:hover {
+          border-left-color: var(--accent-yellow);
+          transform: translateY(-5px);
+        }
+    </style>
+</head>
+<body class="bg-[#F4F7FC] text-[#1E293B] min-h-screen flex flex-col">
+
+    <!-- Navigation Bar -->
+    <header class="bg-[#0A2647] border-b border-[#1B7C8C]/30 sticky top-0 z-50 shadow-lg">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4 flex justify-between items-center">
+            <div class="flex items-center space-x-4 space-x-reverse">
+                <a href="/" class="flex items-center space-x-3 space-x-reverse group">
+                    <span class="text-3xl font-black text-[#F5C518] tracking-wider group-hover:text-amber-300 transition">3M GROUP</span>
+                    <span class="text-xs bg-[#1B7C8C]/30 text-white px-2.5 py-1 rounded-sm border border-[#1B7C8C] font-bold hidden sm:inline-block">للمعدات الصناعية</span>
+                </a>
+            </div>
+            <nav class="hidden md:flex space-x-8 space-x-reverse font-bold text-sm">
+                <a href="/" class="text-white hover:text-[#F5C518] transition py-1">الرئيسية</a>
+                <a href="/catalog.html" class="text-[#F5C518] border-b-2 border-[#F5C518] pb-1 transition">كتالوج المنتجات والمعدات</a>
+            </nav>
+            <div class="flex items-center space-x-3 space-x-reverse">
+                <a href="/catalog.html" class="btn-primary text-sm uppercase">
+                    تصفح الكتالوج
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Page Title & Hero -->
+    <section class="bg-[#0A2647] text-white py-14 border-b-4 border-[#F5C518]">
+        <div class="max-w-7xl mx-auto px-4 text-center">
+            <h1 class="text-3xl sm:text-4xl font-black mb-4 uppercase text-[#F5C518]">فهرس المعدات والمنتجات الصناعية</h1>
+            <p class="text-gray-200 max-w-2xl mx-auto text-base">تصفح أحدث ماكينات الليزر وخطوط الإنتاج والحلول اللوجستية المتقدمة لشركة 3M Group في صفحات مخصصة ومستقلة لكل منتج.</p>
+        </div>
+    </section>
+
+    <!-- Main Content Grid -->
+    <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10 flex-grow w-full">
+        <div class="grid grid-cols-1 lg:grid-cols-4 gap-8">
+            
+            <!-- Sidebar Filter -->
+            <aside class="bg-white p-6 rounded-sm border-t-4 border-[#1B7C8C] shadow-md h-fit sticky top-24">
+                <h3 class="text-lg font-black text-[#0A2647] mb-4 flex items-center gap-2">
+                    <svg class="w-5 h-5 text-[#1B7C8C]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 4a1 1 0 011-1h16a1 1 0 011 1v2.586a1 1 0 01-.293.707l-6.414 6.414a1 1 0 00-.293.707V17l-4 4v-6.586a1 1 0 00-.293-.707L3.293 7.293A1 1 0 013 6.586V4z"/></svg>
+                    تصفية المنتجات
+                </h3>
+                
+                <div class="mb-6">
+                    <label class="block text-sm text-[#0A2647] font-bold mb-2">البحث بالاسم</label>
+                    <input type="text" id="searchInput" placeholder="مثال: ليزر فايبر..." class="w-full bg-[#F4F7FC] border border-gray-300 rounded-sm px-3 py-2 text-sm focus:outline-none focus:border-[#1B7C8C]">
+                </div>
+
+                <div class="mb-6">
+                    <label class="block text-sm text-[#0A2647] font-bold mb-2">الأقسام الرئيسية</label>
+                    <div id="categoriesList" class="space-y-2 text-sm text-[#1E293B]">
+                        <label class="flex items-center space-x-2 space-x-reverse cursor-pointer font-semibold">
+                            <input type="radio" name="category" value="" checked class="accent-[#1B7C8C]">
+                            <span>جميع الأقسام</span>
+                        </label>
+                    </div>
+                </div>
+
+                <button onclick="applyFilter()" class="w-full btn-primary uppercase text-sm">
+                    تطبيق الفلتر
+                </button>
+            </aside>
+
+            <!-- Products Grid Area -->
+            <section class="lg:col-span-3">
+                <div id="productsGrid" class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <!-- Products will be injected dynamically via JS -->
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-gradient-to-r from-[#0A2647] to-[#1B7C8C] text-white py-8 border-t-4 border-[#F5C518] text-center text-sm">
+        <p>© 2026 جميع الحقوق محفوظة لمجموعة 3M Group - برمجة خاصة فائقة الأداء والهوية الصناعية.</p>
+    </footer>
+
+    <script>
+        async function fetchCategories() {
+            const res = await fetch('/api/categories');
+            const data = await res.json();
+            const container = document.getElementById('categoriesList');
+            
+            data.data.forEach(cat => {
+                container.innerHTML += `
+                    <label class="flex items-center space-x-2 space-x-reverse cursor-pointer font-semibold hover:text-[#1B7C8C]">
+                        <input type="radio" name="category" value="${cat.id}" class="accent-[#1B7C8C]">
+                        <span>${cat.name}</span>
+                    </label>
+                `;
+            });
+        }
+
+        async function fetchProducts(categoryId = '', search = '') {
+            let url = `/api/products?category=${categoryId}&search=${search}`;
+            const res = await fetch(url);
+            const data = await res.json();
+            const grid = document.getElementById('productsGrid');
+            grid.innerHTML = '';
+
+            if (data.data.length === 0) {
+                grid.innerHTML = `<div class="col-span-2 text-center py-12 text-[#1E293B] font-bold">لا توجد منتجات مطابقة للبحث.</div>`;
+                return;
+            }
+
+            data.data.forEach(product => {
+                grid.innerHTML += `
+                    <div class="bg-white rounded-sm border-2 border-gray-200 overflow-hidden hover:border-[#1B7C8C] transition duration-300 shadow-sm flex flex-col group">
+                        <div class="relative h-48 overflow-hidden bg-gray-100">
+                            <img src="${product.featured_image}" alt="${product.title}" class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
+                            <span class="absolute top-3 right-3 bg-[#F5C518] text-[#0A2647] text-xs font-black px-2.5 py-1 rounded-sm shadow">مميّز</span>
+                        </div>
+                        <div class="p-6 flex flex-col flex-grow">
+                            <h2 class="text-lg font-black text-[#0A2647] mb-2 group-hover:text-[#1B7C8C] transition">${product.title}</h2>
+                            <p class="text-sm text-[#1E293B]/80 mb-4 line-clamp-2">${product.short_description}</p>
+                            
+                            <div class="mt-auto pt-4 border-t border-gray-100 flex items-center justify-between">
+                                <a href="/product.html?slug=${product.slug}" class="text-[#1B7C8C] hover:text-[#0A2647] font-bold text-sm flex items-center gap-1">
+                                    عرض الصفحة المستقلة ←
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                `;
+            });
+        }
+
+        function applyFilter() {
+            const search = document.getElementById('searchInput').value;
+            const selectedCat = document.querySelector('input[name="category"]:checked')?.value || '';
+            fetchProducts(selectedCat, search);
+        }
+
+        fetchCategories();
+        fetchProducts();
+    </script>
+</body>
+</html>

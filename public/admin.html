@@ -1,0 +1,420 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>لوحة التحكم الآمنة | مجموعة 3M Group</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'primary-dark': '#0A2647',
+                        'secondary-teal': '#1B7C8C',
+                        'accent-yellow': '#F5C518',
+                        'bg-light': '#F4F7FC',
+                        'text-dark': '#1E293B',
+                    }
+                }
+            }
+        }
+    </script>
+    <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700;800;900&family=Cairo:wght@400;600;700;800;900&display=swap" rel="stylesheet">
+    <style>
+        :root {
+          --primary-dark: #0A2647;
+          --secondary-teal: #1B7C8C;
+          --accent-yellow: #F5C518;
+          --bg-light: #F4F7FC;
+          --text-dark: #1E293B;
+          --text-white: #FFFFFF;
+        }
+
+        body {
+          font-family: 'Tajawal', 'Cairo', sans-serif;
+          background-color: var(--bg-light);
+          color: var(--text-dark);
+        }
+
+        .btn-primary {
+          background-color: var(--accent-yellow);
+          color: var(--primary-dark);
+          font-weight: 700;
+          border: none;
+          padding: 10px 20px;
+          border-radius: 4px;
+          transition: all 0.3s ease;
+          display: inline-block;
+          text-align: center;
+        }
+
+        .btn-primary:hover {
+          background-color: var(--secondary-teal);
+          color: var(--text-white);
+          box-shadow: 0 8px 20px rgba(27, 124, 140, 0.4);
+        }
+    </style>
+</head>
+<body class="bg-[#F4F7FC] text-[#1E293B] min-h-screen flex flex-col">
+
+    <!-- LOGIN MODAL / SCREEN -->
+    <div id="loginScreen" class="fixed inset-0 bg-[#0A2647] z-50 flex items-center justify-center p-4">
+        <div class="bg-white border-t-4 border-[#F5C518] p-8 rounded-sm max-w-md w-full shadow-2xl">
+            <div class="text-center mb-6">
+                <span class="text-3xl font-black text-[#0A2647] tracking-wider">3M GROUP</span>
+                <h2 class="text-xl font-bold text-[#1B7C8C] mt-2">تسجيل دخول لوحة التحكم</h2>
+                <p class="text-xs text-gray-500 mt-1">منطقة محمية خاصة بمدير النظام</p>
+            </div>
+            
+            <form onsubmit="handleLogin(event)" class="space-y-4 text-sm">
+                <div>
+                    <label class="block text-[#0A2647] font-bold mb-1">البريد الإلكتروني</label>
+                    <input type="email" id="loginEmail" required value="admin@3mgroup.com" class="w-full bg-[#F4F7FC] border border-gray-300 rounded-sm p-3 text-[#1E293B] focus:border-[#1B7C8C]">
+                </div>
+                <div>
+                    <label class="block text-[#0A2647] font-bold mb-1">كلمة المرور</label>
+                    <input type="password" id="loginPassword" required value="admin123" class="w-full bg-[#F4F7FC] border border-gray-300 rounded-sm p-3 text-[#1E293B] focus:border-[#1B7C8C]">
+                </div>
+                <button type="submit" class="w-full btn-primary uppercase text-base">
+                    تسجيل الدخول الآمن
+                </button>
+            </form>
+            <div class="mt-6 text-center text-xs text-gray-500">
+                بيانات الدخول التجريبية: <span class="text-[#1B7C8C] font-bold">admin@3mgroup.com</span> / <span class="text-[#1B7C8C] font-bold">admin123</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- Header -->
+    <header class="bg-[#0A2647] border-b border-[#1B7C8C]/30 sticky top-0 z-40 shadow-md">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4 flex justify-between items-center">
+            <div class="flex items-center space-x-4 space-x-reverse">
+                <span class="text-2xl font-black text-[#F5C518] tracking-wider">3M GROUP</span>
+                <span class="text-xs bg-[#1B7C8C]/30 text-white px-2.5 py-1 rounded-sm border border-[#1B7C8C] font-bold">لوحة التحكم الآمنة</span>
+            </div>
+            <nav class="hidden md:flex space-x-6 space-x-reverse font-bold text-sm">
+                <button onclick="switchTab('products')" id="tabProductsBtn" class="text-[#F5C518] border-b-2 border-[#F5C518] pb-1">إدارة المنتجات</button>
+                <button onclick="switchTab('inquiries')" id="tabInquiriesBtn" class="text-white hover:text-[#F5C518] transition">طلبات عروض الأسعار (CRM)</button>
+            </nav>
+            <div class="flex items-center gap-3">
+                <a href="/" target="_blank" class="bg-[#1B7C8C] hover:bg-[#0A2647] text-white text-xs font-bold px-3 py-2 rounded-sm transition">
+                    عرض الموقع ↗
+                </a>
+                <button onclick="logout()" class="bg-red-600 hover:bg-red-700 text-white text-xs font-bold px-3 py-2 rounded-sm transition">
+                    تسجيل الخروج
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Container -->
+    <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10 flex-grow w-full">
+        
+        <!-- PRODUCTS TAB -->
+        <section id="productsSection" class="space-y-6">
+            <div class="flex justify-between items-center">
+                <h2 class="text-2xl font-black text-[#0A2647]">إدارة المنتجات والمعدات الصناعية</h2>
+                <button onclick="openAddProductModal()" class="btn-primary text-sm uppercase">
+                    + إضافة منتج جديد
+                </button>
+            </div>
+
+            <div class="bg-white rounded-sm border-2 border-gray-200 overflow-hidden shadow-md">
+                <table class="w-full text-right text-sm">
+                    <thead class="bg-[#0A2647] text-[#F5C518]">
+                        <tr>
+                            <th class="p-4">الصورة</th>
+                            <th class="p-4">عنوان المنتج</th>
+                            <th class="p-4">الرابط المستقل (Slug)</th>
+                            <th class="p-4">المشاهدات</th>
+                            <th class="p-4">الإجراءات</th>
+                        </tr>
+                    </thead>
+                    <tbody id="productsTableBody" class="divide-y divide-gray-200 text-[#1E293B]">
+                        <tr><td colspan="5" class="p-6 text-center text-gray-500 font-bold">جاري التحميل...</td></tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+        <!-- INQUIRIES CRM TAB -->
+        <section id="inquiriesSection" class="space-y-6 hidden">
+            <div class="flex justify-between items-center">
+                <h2 class="text-2xl font-black text-[#0A2647]">إدارة الاستفسارات وطلبات عروض الأسعار (CRM)</h2>
+            </div>
+
+            <div class="bg-white rounded-sm border-2 border-gray-200 overflow-hidden shadow-md">
+                <table class="w-full text-right text-sm">
+                    <thead class="bg-[#0A2647] text-[#F5C518]">
+                        <tr>
+                            <th class="p-4">اسم العميل</th>
+                            <th class="p-4">الهاتف / واتساب</th>
+                            <th class="p-4">المنتج المطلوب</th>
+                            <th class="p-4">الرسالة / التفاصيل</th>
+                            <th class="p-4">التاريخ</th>
+                        </tr>
+                    </thead>
+                    <tbody id="inquiriesTableBody" class="divide-y divide-gray-200 text-[#1E293B]">
+                        <tr><td colspan="5" class="p-6 text-center text-gray-500 font-bold">جاري التحميل...</td></tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Modal: Add Product -->
+    <div id="addProductModal" class="hidden fixed inset-0 bg-[#0A2647]/80 backdrop-blur-sm z-50 flex items-center justify-center p-4">
+        <div class="bg-white border-t-4 border-[#F5C518] rounded-sm p-6 max-w-2xl w-full max-h-[90vh] overflow-y-auto shadow-2xl relative">
+            <button onclick="closeAddProductModal()" class="absolute top-4 left-4 text-[#0A2647] font-black text-lg">✕</button>
+            <h3 class="text-xl font-black text-[#0A2647] mb-4">إضافة منتج / معدة جديدة</h3>
+            
+            <form onsubmit="handleAddProduct(event)" class="space-y-4 text-sm">
+                <div>
+                    <label class="block text-[#0A2647] font-bold mb-1">عنوان المنتج</label>
+                    <input type="text" id="prodTitle" required class="w-full bg-[#F4F7FC] border border-gray-300 rounded-sm p-2.5 focus:border-[#1B7C8C]">
+                </div>
+                <div>
+                    <label class="block text-[#0A2647] font-bold mb-1">الرابط المستقل (Slug)</label>
+                    <input type="text" id="prodSlug" required placeholder="مثال: fiber-laser-cutter-sf3015h" class="w-full bg-[#F4F7FC] border border-gray-300 rounded-sm p-2.5 focus:border-[#1B7C8C]">
+                </div>
+                <div>
+                    <label class="block text-[#0A2647] font-bold mb-1">رابط الصورة الرئيسية</label>
+                    <input type="url" id="prodImage" required placeholder="https://..." class="w-full bg-[#F4F7FC] border border-gray-300 rounded-sm p-2.5 focus:border-[#1B7C8C]">
+                </div>
+                <div>
+                    <label class="block text-[#0A2647] font-bold mb-1">وصف قصير (Short Description)</label>
+                    <input type="text" id="prodShortDesc" required class="w-full bg-[#F4F7FC] border border-gray-300 rounded-sm p-2.5 focus:border-[#1B7C8C]">
+                </div>
+                <div>
+                    <label class="block text-[#0A2647] font-bold mb-1">الوصف التفصيلي</label>
+                    <textarea id="prodDesc" rows="3" required class="w-full bg-[#F4F7FC] border border-gray-300 rounded-sm p-2.5 focus:border-[#1B7C8C]"></textarea>
+                </div>
+
+                <div class="border-t border-gray-200 pt-4">
+                    <label class="block text-[#0A2647] font-bold mb-2">المواصفات الفنية الديناميكية (JSON Key-Value)</label>
+                    <div id="specsContainer" class="space-y-2">
+                        <div class="flex gap-2">
+                            <input type="text" placeholder="المفتاح (مثال: قوة الليزر)" class="spec-key w-1/2 bg-[#F4F7FC] border border-gray-300 rounded-sm p-2 text-xs">
+                            <input type="text" placeholder="القيمة (مثال: 12000W)" class="spec-val w-1/2 bg-[#F4F7FC] border border-gray-300 rounded-sm p-2 text-xs">
+                        </div>
+                    </div>
+                    <button type="button" onclick="addSpecRow()" class="mt-2 text-xs text-[#1B7C8C] font-bold hover:underline">+ إضافة حقل مواصفات جديد</button>
+                </div>
+
+                <button type="submit" class="w-full btn-primary uppercase text-base mt-4">
+                    حفظ ونشر المنتج
+                </button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="bg-gradient-to-r from-[#0A2647] to-[#1B7C8C] text-white py-6 text-center text-xs">
+        <p>© 2026 لوحة التحكم الآمنة لمجموعة 3M Group.</p>
+    </footer>
+
+    <script>
+        let authToken = localStorage.getItem('adminToken');
+
+        function checkAuth() {
+            if (authToken) {
+                document.getElementById('loginScreen').classList.add('hidden');
+                loadProducts();
+                loadInquiries();
+            } else {
+                document.getElementById('loginScreen').classList.remove('hidden');
+            }
+        }
+
+        async function handleLogin(e) {
+            e.preventDefault();
+            const email = document.getElementById('loginEmail').value;
+            const password = document.getElementById('loginPassword').value;
+
+            const res = await fetch('/api/admin/login', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ email, password })
+            });
+
+            const data = await res.json();
+            if (data.success) {
+                authToken = data.token;
+                localStorage.setItem('adminToken', authToken);
+                document.getElementById('loginScreen').classList.add('hidden');
+                loadProducts();
+                loadInquiries();
+            } else {
+                alert(data.message || 'خطأ في بيانات الدخول');
+            }
+        }
+
+        function logout() {
+            localStorage.removeItem('adminToken');
+            authToken = null;
+            document.getElementById('loginScreen').classList.remove('hidden');
+        }
+
+        function switchTab(tab) {
+            if (tab === 'products') {
+                document.getElementById('productsSection').classList.remove('hidden');
+                document.getElementById('inquiriesSection').classList.add('hidden');
+                document.getElementById('tabProductsBtn').className = 'text-[#F5C518] border-b-2 border-[#F5C518] pb-1';
+                document.getElementById('tabInquiriesBtn').className = 'text-white hover:text-[#F5C518] transition';
+            } else {
+                document.getElementById('productsSection').classList.add('hidden');
+                document.getElementById('inquiriesSection').classList.remove('hidden');
+                document.getElementById('tabInquiriesBtn').className = 'text-[#F5C518] border-b-2 border-[#F5C518] pb-1';
+                document.getElementById('tabProductsBtn').className = 'text-white hover:text-[#F5C518] transition';
+            }
+        }
+
+        async function loadProducts() {
+            const res = await fetch('/api/admin/products', {
+                headers: { 'Authorization': `Bearer ${authToken}` }
+            });
+            const data = await res.json();
+            const tbody = document.getElementById('productsTableBody');
+            tbody.innerHTML = '';
+
+            data.data.forEach(p => {
+                tbody.innerHTML += `
+                    <tr>
+                        <td class="p-4"><img src="${p.featured_image}" class="w-12 h-12 object-cover rounded-sm border"></td>
+                        <td class="p-4 font-bold">${p.title}</td>
+                        <td class="p-4 text-xs font-mono text-[#1B7C8C]">${p.slug}</td>
+                        <td class="p-4 font-bold">${p.views_count || 0}</td>
+                        <td class="p-4">
+                            <button onclick="deleteProduct(${p.id})" class="text-red-600 hover:text-red-800 font-bold text-xs bg-red-100 px-3 py-1 rounded-sm">حذف</button>
+                        </td>
+                    </tr>
+                `;
+            });
+        }
+
+        async function loadInquiries() {
+            const res = await fetch('/api/admin/inquiries', {
+                headers: { 'Authorization': `Bearer ${authToken}` }
+            });
+            const data = await res.json();
+            const tbody = document.getElementById('inquiriesTableBody');
+            tbody.innerHTML = '';
+
+            data.data.forEach(inq => {
+                tbody.innerHTML += `
+                    <tr>
+                        <td class="p-4 font-bold text-[#0A2647]">${inq.name}</td>
+                        <td class="p-4 text-xs font-mono">${inq.phone}</td>
+                        <td class="p-4 text-xs font-bold text-[#1B7C8C]">${inq.product_title || 'استفسار عام'}</td>
+                        <td class="p-4 text-xs">${inq.message || '-'}</td>
+                        <td class="p-4 text-xs text-gray-500">${new Date(inq.created_at).toLocaleDateString('ar-EG')}</td>
+                    </tr>
+                `;
+            });
+        }
+
+        function openAddProductModal() {
+            document.getElementById('addProductModal').classList.remove('hidden');
+        }
+
+        function closeAddProductModal() {
+            document.getElementById('addProductModal').classList.add('hidden');
+        }
+
+        function addSpecRow() {
+            const container = document.getElementById('specsContainer');
+            const newRow = document.createElement('div');
+            newRow.className = 'flex gap-2';
+            newRow.innerHTML = `
+                <input type="text" placeholder="المفتاح" class="spec-key w-1/2 bg-[#F4F7FC] border border-gray-300 rounded-sm p-2 text-xs">
+                <input type="text" placeholder="القيمة" class="spec-val w-1/2 bg-[#F4F7FC] border border-gray-300 rounded-sm p-2 text-xs">
+            `;
+            container.appendChild(newRow);
+        }
+
+        async function deleteProduct(id) {
+            if (!confirm('هل أنت متأكد من حذف هذا المنتج؟')) return;
+            
+            try {
+                const res = await fetch(`/api/admin/products/${id}`, {
+                    method: 'DELETE',
+                    headers: { 'Authorization': `Bearer ${authToken}` }
+                });
+                const data = await res.json();
+                if (data.success) {
+                    alert('تم حذف المنتج بنجاح');
+                    loadProducts();
+                } else {
+                    alert(data.message || 'حدث خطأ أثناء الحذف');
+                }
+            } catch (err) {
+                alert('خطأ في الاتصال بالسيرفر');
+            }
+        }
+
+        async function deleteProduct(id) {
+            if (!confirm('هل أنت متأكد من حذف هذا المنتج؟')) return;
+            
+            const res = await fetch(`/api/admin/products/${id}`, {
+                method: 'DELETE',
+                headers: { 'Authorization': `Bearer ${authToken}` }
+            });
+            const data = await res.json();
+            if (data.success) {
+                alert('تم حذف المنتج بنجاح');
+                loadProducts();
+            } else {
+                alert(data.message || 'حدث خطأ أثناء الحذف');
+            }
+        }
+
+        async function handleAddProduct(e) {
+            e.preventDefault();
+            const keys = document.querySelectorAll('.spec-key');
+            const vals = document.querySelectorAll('.spec-val');
+            const specs = {};
+            keys.forEach((k, idx) => {
+                if (k.value && vals[idx]?.value) {
+                    specs[k.value] = vals[idx].value;
+                }
+            });
+
+            const body = {
+                category_id: 1,
+                title: document.getElementById('prodTitle').value,
+                slug: document.getElementById('prodSlug').value,
+                featured_image: document.getElementById('prodImage').value,
+                short_description: document.getElementById('prodShortDesc').value,
+                description: document.getElementById('prodDesc').value,
+                specifications: specs
+            };
+
+            try {
+                const res = await fetch('/api/admin/products', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                        'Authorization': `Bearer ${authToken}`
+                    },
+                    body: JSON.stringify(body)
+                });
+                const data = await res.json();
+                if (data.success) {
+                    alert('تم إضافة المنتج بنجاح');
+                    document.querySelector('form').reset();
+                    closeAddProductModal();
+                    loadProducts();
+                } else {
+                    alert(data.message || 'حدث خطأ أثناء حفظ المنتج');
+                }
+            } catch (err) {
+                alert('خطأ في الاتصال بالسيرفر');
+            }
+        }
+
+        checkAuth();
+    </script>
+</body>
+</html>
