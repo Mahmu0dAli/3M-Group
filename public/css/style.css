@@ -79,6 +79,25 @@ body {
   box-shadow: 0 12px 30px rgba(10, 38, 71, 0.12);
 }
 
+/* Glassmorphism Effect */
+.glass-card {
+    background: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(5px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 12px;
+    padding: 2rem;
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+}
+
+/* تحسين وضوح النصوص فوق الفيديو */
+.hero-text-shadow {
+    text-shadow: 0 2px 4px rgba(0,0,0,0.5);
+}
+
+.hero-title-shadow {
+    text-shadow: 0 4px 6px rgba(0,0,0,0.6);
+}
+
 /* WhatsApp Floating Button */
 .whatsapp-float {
     position: fixed;
