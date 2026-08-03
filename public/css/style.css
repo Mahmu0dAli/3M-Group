@@ -20,7 +20,7 @@ html {
     left: 0;
     width: 100%;
     height: 100%;
-    background: rgba(10, 38, 71, 0.4); /* تغميق الفيديو لجعل النص واضحاً */
+    background: rgba(10, 38, 71, 0.2); /* تغميق الفيديو لجعل النص واضحاً */
     z-index: 1;
 }
 
@@ -51,7 +51,7 @@ body {
   font-weight: 700;
   border: none;
   padding: 14px 32px;
-  border-radius: 4px; /* زوايا حادة قليلاً */
+  border-radius: 13px; /* زوايا حادة قليلاً */
   transition: all 0.3s ease;
   display: inline-block;
   text-align: center;
@@ -81,7 +81,7 @@ body {
 
 /* Glassmorphism Effect */
 .glass-card {
-    background: rgba(255, 255, 255, 0.05);
+    background: rgba(225, 225, 255, 0.001);
     backdrop-filter: blur(5px);
     border: 1px solid rgba(255, 255, 255, 0.1);
     border-radius: 12px;
