@@ -20,7 +20,7 @@ html {
     left: 0;
     width: 100%;
     height: 100%;
-    background: rgba(10, 38, 71, 0.85); /* تغميق الفيديو لجعل النص واضحاً */
+    background: rgba(10, 38, 71, 0.4); /* تغميق الفيديو لجعل النص واضحاً */
     z-index: 1;
 }
 
@@ -32,7 +32,7 @@ html {
 :root {
   --primary-dark: #0A2647;      /* الأزرق البحري للهيدر والفوتر والعناوين الكبيرة */
   --secondary-teal: #1B7C8C;    /* الزبرجدي للخلفيات الثانوية والأيقونات */
-  --accent-yellow: #F5C518;     /* الأصفر للأزرار الرئيسية والكلمات المفتاحية */
+  --accent-yellow: #D4AF37;     /* اللون الأصفر الجديد (ذهبي) للأزرار والكلمات المفتاحية */
   --bg-light: #F4F7FC;          /* خلفية الموقع الأساسية */
   --text-dark: #1E293B;         /* لون النصوص الأساسي */
   --text-white: #FFFFFF;        /* النصوص البيضاء */
@@ -77,4 +77,29 @@ body {
   border-left-color: var(--accent-yellow);
   transform: translateY(-5px);
   box-shadow: 0 12px 30px rgba(10, 38, 71, 0.12);
+}
+
+/* WhatsApp Floating Button */
+.whatsapp-float {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    background-color: #25d366;
+    color: white;
+    width: 60px;
+    height: 60px;
+    border-radius: 50px;
+    text-align: center;
+    font-size: 35px;
+    box-shadow: 2px 2px 10px rgba(0,0,0,0.3);
+    z-index: 1000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: transform 0.3s ease;
+}
+
+.whatsapp-float:hover {
+    transform: scale(1.1);
+    background-color: #128c7e;
 }
