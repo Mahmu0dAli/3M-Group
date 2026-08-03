@@ -1,0 +1,80 @@
+/* 3M Group - Global Smooth Scrolling */
+html {
+    scroll-behavior: smooth;
+}
+
+/* الفيديو كخلفية */
+.video-background {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: 0;
+}
+
+.overlay-dark {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(10, 38, 71, 0.85); /* تغميق الفيديو لجعل النص واضحاً */
+    z-index: 1;
+}
+
+.content-wrapper {
+    position: relative;
+    z-index: 2;
+}
+
+:root {
+  --primary-dark: #0A2647;      /* الأزرق البحري للهيدر والفوتر والعناوين الكبيرة */
+  --secondary-teal: #1B7C8C;    /* الزبرجدي للخلفيات الثانوية والأيقونات */
+  --accent-yellow: #F5C518;     /* الأصفر للأزرار الرئيسية والكلمات المفتاحية */
+  --bg-light: #F4F7FC;          /* خلفية الموقع الأساسية */
+  --text-dark: #1E293B;         /* لون النصوص الأساسي */
+  --text-white: #FFFFFF;        /* النصوص البيضاء */
+}
+
+body {
+  font-family: 'Tajawal', 'Cairo', sans-serif;
+  background-color: var(--bg-light);
+  color: var(--text-dark);
+}
+
+/* مثال على تصميم زر رئيسي */
+.btn-primary {
+  background-color: var(--accent-yellow);
+  color: var(--primary-dark);
+  font-weight: 700;
+  border: none;
+  padding: 14px 32px;
+  border-radius: 4px; /* زوايا حادة قليلاً */
+  transition: all 0.3s ease;
+  display: inline-block;
+  text-align: center;
+}
+
+.btn-primary:hover {
+  background-color: var(--secondary-teal);
+  color: var(--text-white);
+  box-shadow: 0 8px 20px rgba(27, 124, 140, 0.4);
+}
+
+/* مثال على بطاقة خدمة */
+.service-card {
+  background: var(--text-white);
+  border-left: 6px solid var(--secondary-teal);
+  padding: 24px;
+  transition: 0.3s;
+  border-radius: 4px;
+  box-shadow: 0 4px 12px rgba(10, 38, 71, 0.06);
+}
+
+.service-card:hover {
+  border-left-color: var(--accent-yellow);
+  transform: translateY(-5px);
+  box-shadow: 0 12px 30px rgba(10, 38, 71, 0.12);
+}
